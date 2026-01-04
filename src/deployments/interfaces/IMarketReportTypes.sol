@@ -84,11 +84,12 @@ struct MarketReport {
   address staticATokenFactoryProxy;
   address staticATokenImplementation;
   address revenueSplitter;
+  address dustBin;
+  address emptyImplementation;
 }
 
 struct LibrariesReport {
   address borrowLogic;
-  address bridgeLogic;
   address configuratorLogic;
   address eModeLogic;
   address flashLoanLogic;
@@ -114,8 +115,7 @@ struct MarketConfig {
   uint256 providerId;
   bytes32 salt;
   address wrappedNativeToken;
-  uint128 flashLoanPremiumTotal;
-  uint128 flashLoanPremiumToProtocol;
+  uint128 flashLoanPremium;
   address incentivesProxy;
   address treasury; // let empty for deployment of collector, otherwise reuse treasury address
   address treasuryPartner; // let empty for single treasury, or add treasury partner for revenue split between two organizations.
@@ -156,6 +156,7 @@ struct StaticATokenReport {
 
 struct InitialReport {
   address poolAddressesProvider;
+  address interestRateStrategy;
   address poolAddressesProviderRegistry;
 }
 
@@ -173,6 +174,8 @@ struct PeripheryReport {
   address emissionManager;
   address rewardsControllerImplementation;
   address revenueSplitter;
+  address emptyImplementation;
+  address dustBin;
 }
 
 struct ParaswapReport {

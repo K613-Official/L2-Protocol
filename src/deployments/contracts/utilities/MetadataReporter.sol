@@ -38,11 +38,13 @@ contract MetadataReporter is IMetadataReporter {
     );
     vm.serializeAddress(jsonReport, 'aaveOracle', report.aaveOracle);
     vm.serializeAddress(jsonReport, 'treasury', report.treasury);
+    vm.serializeAddress(jsonReport, 'dustBin', report.dustBin);
     vm.serializeAddress(jsonReport, 'wrappedTokenGateway', report.wrappedTokenGateway);
     vm.serializeAddress(jsonReport, 'walletBalanceProvider', report.walletBalanceProvider);
     vm.serializeAddress(jsonReport, 'uiIncentiveDataProvider', report.uiIncentiveDataProvider);
     vm.serializeAddress(jsonReport, 'uiPoolDataProvider', report.uiPoolDataProvider);
     vm.serializeAddress(jsonReport, 'treasuryImplementation', report.treasuryImplementation);
+    vm.serializeAddress(jsonReport, 'emptyImplementation', report.emptyImplementation);
     vm.serializeAddress(jsonReport, 'l2Encoder', report.l2Encoder);
     vm.serializeAddress(jsonReport, 'aToken', report.aToken);
     vm.serializeAddress(jsonReport, 'variableDebtToken', report.variableDebtToken);
@@ -105,7 +107,6 @@ contract MetadataReporter is IMetadataReporter {
     string memory jsonReport = 'lib-report-1';
 
     vm.serializeAddress(jsonReport, 'borrowLogic', libraries.borrowLogic);
-    vm.serializeAddress(jsonReport, 'bridgeLogic', libraries.bridgeLogic);
     vm.serializeAddress(jsonReport, 'configuratorLogic', libraries.configuratorLogic);
 
     string memory output = vm.serializeAddress(jsonReport, 'eModeLogic', libraries.eModeLogic);
