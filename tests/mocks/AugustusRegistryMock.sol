@@ -2,10 +2,10 @@
 pragma solidity ^0.8.0;
 
 contract AugustusRegistryMock {
-    function isValidAugustus(address input) external pure returns (bool) {
-        if (input == address(0)) {
-            return false;
-        }
-        return true;
+  function isValidAugustus(address input) external pure returns (bool) {
+    if (input == address(0)) {
+      return false;
     }
+    return true;
+  }
 }

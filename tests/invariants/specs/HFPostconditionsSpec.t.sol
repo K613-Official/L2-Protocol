@@ -5,7 +5,7 @@ pragma solidity ^0.8.19;
 /// @notice Health Factor Classification Model for Aave V3
 /// @dev Defines postcondition properties related to the Health Factor (HF) in the protocol
 abstract contract HFPostconditionsSpec {
-    /*///////////////////////////////////////////////////////////////////////////////////////////////////
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////
     //                                      PROPERTY TYPES                                             //
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -18,33 +18,33 @@ abstract contract HFPostconditionsSpec {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                    HEALTH FACTOR INVARIANTS                                    //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
+  //                                    HEALTH FACTOR INVARIANTS                                    //
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // 1. HF Transition Properties
-    string constant HF_GPOST_A =
-        "HF_GPOST_A: If health factor decreases, the action must not belong to nonDecreasingHfActions";
+  // 1. HF Transition Properties
+  string constant HF_GPOST_A =
+    'HF_GPOST_A: If health factor decreases, the action must not belong to nonDecreasingHfActions';
 
-    string constant HF_GPOST_B =
-        "HF_GPOST_B: If health factor increases, the action must not belong to nonIncreasingHfActions";
+  string constant HF_GPOST_B =
+    'HF_GPOST_B: If health factor increases, the action must not belong to nonIncreasingHfActions';
 
-    // 2. Safety Invariants
-    string constant HF_GPOST_C =
-        "HF_GPOST_C: No function can transition a healthy account (HF >= 1.0) to unhealthy (HF < 1.0), except for price updates and borrowing interest";
+  // 2. Safety Invariants
+  string constant HF_GPOST_C =
+    'HF_GPOST_C: No function can transition a healthy account (HF >= 1.0) to unhealthy (HF < 1.0), except for price updates and borrowing interest';
 
-    // 3. Unsafe HF Conditions
-    string constant HF_GPOST_D =
-        "HF_GPOST_D: If HF is unsafe after an action (HF < 1.0), the action must belong to hfUnsafeAfterAction";
+  // 3. Unsafe HF Conditions
+  string constant HF_GPOST_D =
+    'HF_GPOST_D: If HF is unsafe after an action (HF < 1.0), the action must belong to hfUnsafeAfterAction';
 
-    string constant HF_GPOST_E =
-        "HF_GPOST_E: If HF is unsafe before an action (HF < 1.0), the action must belong to hfUnsafeBeforeAction";
+  string constant HF_GPOST_E =
+    'HF_GPOST_E: If HF is unsafe before an action (HF < 1.0), the action must belong to hfUnsafeBeforeAction';
 
-    // 4. Actor Isolation Invariants
-    string constant HF_GPOST_F =
-        "HF_GPOST_F: Changes to an actor Health Factor (HF) must not affect the HF of any non-targeted actors.";
+  // 4. Actor Isolation Invariants
+  string constant HF_GPOST_F =
+    'HF_GPOST_F: Changes to an actor Health Factor (HF) must not affect the HF of any non-targeted actors.';
 
-    /*///////////////////////////////////////////////////////////////////////////////////////////////////
+  /*///////////////////////////////////////////////////////////////////////////////////////////////////
     //                                FUNCTIONAL BEHAVIOR AND HF IMPACT                                //
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
