@@ -30,7 +30,7 @@ mainnet = "${RPC_MAINNET}"
 optimism = "${RPC_OPTIMISM}"
 avalanche = "${RPC_AVALANCHE}"
 polygon = "${RPC_POLYGON}"
-arbitrum = "${RPC_ARBITRUM}"
+arbitrum_sepolia = "${ARBITRUM_SEPOLIA_RPC_URL}"
 fantom = "${RPC_FANTOM}"
 scroll = "${RPC_SCROLL}"
 celo = "${RPC_CELO}"
@@ -48,6 +48,7 @@ linea = "${RPC_LINEA}"
 
 [etherscan]
 mainnet = { key = "${ETHERSCAN_API_KEY_MAINNET}", chainId = 1 }
+arbitrum_sepolia = { key = "${ETHERSCAN_API_KEY}", url = "https://api-sepolia.arbiscan.io/api/v2" }
 optimism = { key = "${ETHERSCAN_API_KEY_OPTIMISM}", chainId = 10 }
 avalanche = { key = "${ETHERSCAN_API_KEY_AVALANCHE}", chainId = 43114 }
 polygon = { key = "${ETHERSCAN_API_KEY_POLYGON}", chainId = 137 }

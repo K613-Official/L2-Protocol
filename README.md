@@ -1,8 +1,17 @@
-# Aave V3.2 Origin
+# Aave V3.3 Origin
 
 ![Aave v3.1 Origin_banner](./resources/v3-1-banner.jpeg)
 
-Aave v3.2 complete codebase, Foundry-based.
+Aave v3.3 complete codebase, Foundry-based.
+
+## Fork Information
+
+This repository is a fork of [Aave v3 Origin](https://github.com/aave-dao/aave-v3-origin).
+
+- **Base version**: v3.3.0
+- **Upstream commit**: `5431379f8beb4d7128c84a81ced3917d856efa84`
+- **Fork date**: 2025-02-24
+- **Upstream repository**: [aave-dao/aave-v3-origin](https://github.com/aave-dao/aave-v3-origin)
 
 [![Coverage badge](./report/coverage.svg)](https://aave-dao.github.io/aave-v3-origin)
 <br>
