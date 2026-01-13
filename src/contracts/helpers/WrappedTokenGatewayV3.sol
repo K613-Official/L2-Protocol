@@ -28,7 +28,8 @@ contract WrappedTokenGatewayV3 is IWrappedTokenGatewayV3, Ownable {
    * @dev Sets the WETH address and the PoolAddressesProvider address. Infinite approves pool.
    * @param weth Address of the Wrapped Ether contract
    * @param owner Address of the owner of this contract
-   **/
+   *
+   */
   constructor(address weth, address owner, IPool pool) {
     WETH = IWETH(weth);
     POOL = pool;
@@ -41,7 +42,8 @@ contract WrappedTokenGatewayV3 is IWrappedTokenGatewayV3, Ownable {
    * is minted.
    * @param onBehalfOf address of the user who will receive the aTokens representing the deposit
    * @param referralCode integrators are assigned a referral code and can potentially receive rewards.
-   **/
+   *
+   */
   function depositETH(address, address onBehalfOf, uint16 referralCode) external payable override {
     WETH.deposit{value: msg.value}();
     POOL.deposit(address(WETH), msg.value, onBehalfOf, referralCode);

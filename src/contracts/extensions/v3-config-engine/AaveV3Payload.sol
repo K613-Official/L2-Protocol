@@ -113,7 +113,8 @@ abstract contract AaveV3Payload {
     _postExecute();
   }
 
-  /** @dev Converts basis points to RAY units
+  /**
+   * @dev Converts basis points to RAY units
    * e.g. 10_00 (10.00%) will return 100000000000000000000000000
    */
   function _bpsToRay(uint256 amount) internal pure returns (uint256) {

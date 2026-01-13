@@ -7,7 +7,8 @@ import {ITransferStrategyBase} from './ITransferStrategyBase.sol';
 /**
  * @title IStakedTokenTransferStrategy
  * @author Aave
- **/
+ *
+ */
 interface IStakedTokenTransferStrategy is ITransferStrategyBase {
   /**
    * @dev Perform a MAX_UINT approval of AAVE to the Staked Aave contract.

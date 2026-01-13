@@ -45,7 +45,9 @@ library EModeLogic {
     DataTypes.UserConfigurationMap storage userConfig,
     DataTypes.ExecuteSetUserEModeParams memory params
   ) external {
-    if (usersEModeCategory[msg.sender] == params.categoryId) return;
+    if (usersEModeCategory[msg.sender] == params.categoryId) {
+      return;
+    }
 
     ValidationLogic.validateSetUserEMode(
       eModeCategories,

@@ -173,7 +173,8 @@ contract UiPoolDataProviderV3 is IUiPoolDataProviderV3 {
     try oracle.BASE_CURRENCY_UNIT() returns (uint256 baseCurrencyUnit) {
       baseCurrencyInfo.marketReferenceCurrencyUnit = baseCurrencyUnit;
       baseCurrencyInfo.marketReferenceCurrencyPriceInUsd = int256(baseCurrencyUnit);
-    } catch (bytes memory /*lowLevelData*/) {
+    } catch (bytes memory) {
+      /*lowLevelData*/
       baseCurrencyInfo.marketReferenceCurrencyUnit = ETH_CURRENCY_UNIT;
       baseCurrencyInfo
         .marketReferenceCurrencyPriceInUsd = marketReferenceCurrencyPriceInUsdProxyAggregator

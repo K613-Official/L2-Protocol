@@ -33,7 +33,8 @@ interface IERC4626StataToken {
    * @param shares The shares to withdraw, in static balance of StaticAToken
    * @param receiver The address that will receive the amount of `ASSET` withdrawn from the Aave protocol
    * @return amountToWithdraw: aToken send to `receiver`, dynamic balance
-   **/
+   *
+   */
   function redeemATokens(
     uint256 shares,
     address receiver,
@@ -45,7 +46,8 @@ interface IERC4626StataToken {
    * @param assets The amount of aTokens to deposit (e.g. deposit of 100 aUSDC)
    * @param receiver The address that will receive the static aTokens
    * @return uint256 The amount of StaticAToken minted, static balance
-   **/
+   *
+   */
   function depositATokens(uint256 assets, address receiver) external returns (uint256);
 
   /**
@@ -55,7 +57,8 @@ interface IERC4626StataToken {
    * @param deadline Must be a timestamp in the future
    * @param sig A `secp256k1` signature params from `msgSender()`
    * @return uint256 The amount of StaticAToken minted, static balance
-   **/
+   *
+   */
   function depositWithPermit(
     uint256 assets,
     address receiver,

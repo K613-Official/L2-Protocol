@@ -123,8 +123,9 @@ contract PoolConfiguratorInitReservesTest is TestnetProcedures {
 
     ConfiguratorInputTypes.InitReserveInput[]
       memory input = new ConfiguratorInputTypes.InitReserveInput[](length);
-    for (uint256 i = 0; i < length; i++)
+    for (uint256 i = 0; i < length; i++) {
       input[i] = _generateInitReserveInput(t, report, poolAdmin, true);
+    }
 
     vm.expectRevert(bytes(Errors.NO_MORE_RESERVES_ALLOWED));
     vm.prank(poolAdmin);

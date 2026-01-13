@@ -14,7 +14,8 @@ import {AggregatorInterface} from '../dependencies/chainlink/AggregatorInterface
  * @title RewardsController
  * @notice Abstract contract template to build Distributors contracts for ERC20 rewards to protocol participants
  * @author Aave
- **/
+ *
+ */
 contract RewardsController is RewardsDistributor, VersionedInitializable, IRewardsController {
   using SafeCast for uint256;
 
@@ -46,7 +47,8 @@ contract RewardsController is RewardsDistributor, VersionedInitializable, IRewar
   /**
    * @dev Initialize for RewardsController
    * @dev It expects an address as argument since its initialized via PoolAddressesProvider._updateImpl()
-   **/
+   *
+   */
   function initialize(address) external initializer {}
 
   /// @inheritdoc IRewardsController
@@ -210,7 +212,8 @@ contract RewardsController is RewardsDistributor, VersionedInitializable, IRewar
    * @param to Address that will be receiving the rewards
    * @param reward Address of the reward token
    * @return Rewards claimed
-   **/
+   *
+   */
   function _claimRewards(
     address[] calldata assets,
     uint256 amount,
@@ -258,7 +261,8 @@ contract RewardsController is RewardsDistributor, VersionedInitializable, IRewar
    * @return
    *   rewardsList List of reward addresses
    *   claimedAmount List of claimed amounts, follows "rewardsList" items order
-   **/
+   *
+   */
   function _claimAllRewards(
     address[] calldata assets,
     address claimer,

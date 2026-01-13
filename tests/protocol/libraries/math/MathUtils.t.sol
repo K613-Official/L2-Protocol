@@ -28,7 +28,7 @@ contract MathUtilsTests is Test {
     vm.warp(block.timestamp + (365 days / 2));
     assertEq(
       w.calculateCompoundedInterest(1.0005e27, previousTimestamp),
-      1.646239361880034706419516000e27
+      1.646239361880034706419516e27
     );
   }
 
@@ -37,7 +37,7 @@ contract MathUtilsTests is Test {
     vm.warp(block.timestamp + (365 days / 2));
     assertEq(
       w.calculateCompoundedInterest(1.0005e27, previousTimestamp, block.timestamp),
-      1.646239361880034706419516000e27
+      1.646239361880034706419516e27
     );
   }
 

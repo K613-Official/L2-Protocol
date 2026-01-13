@@ -6,6 +6,7 @@ import {MockAggregator} from 'src/contracts/mocks/oracle/CLAggregators/MockAggre
 
 contract MockAggregatorSetPrice is MockAggregator {
   constructor(int256 initialAnswer) MockAggregator(initialAnswer) {}
+
   function setLatestAnswer(int256 answer) external {
     _latestAnswer = answer;
     emit AnswerUpdated(answer, 0, block.timestamp);

@@ -13,7 +13,8 @@ import {IERC20} from '../../dependencies/openzeppelin/contracts/IERC20.sol';
  * @notice Transfer strategy that stakes the rewards into a staking contract and transfers the staking contract token.
  * The underlying token must be transferred to this contract to be able to stake it on demand.
  * @author Aave
- **/
+ *
+ */
 contract StakedTokenTransferStrategy is TransferStrategyBase, IStakedTokenTransferStrategy {
   using GPv2SafeERC20 for IERC20;
 

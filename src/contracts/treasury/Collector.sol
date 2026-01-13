@@ -20,7 +20,8 @@ import {ICollector} from './ICollector.sol';
  * - Adapted codebase to Solidity 0.8.11, mainly removing SafeMath and CarefulMath to use native safe math
  * - Same as with creation, on Sablier the `sender` and `recipient` can cancel a stream. Here, only fund admin and recipient
  * @author BGD Labs
- **/
+ *
+ */
 contract Collector is AccessControlUpgradeable, ReentrancyGuardUpgradeable, ICollector {
   using SafeERC20 for IERC20;
   using Address for address payable;
@@ -88,10 +89,12 @@ contract Collector is AccessControlUpgradeable, ReentrancyGuardUpgradeable, ICol
 
   /*** Contract Logic Starts Here */
 
-  /** @notice Initializes the contracts
+  /**
+   * @notice Initializes the contracts
    * @param nextStreamId StreamId to set, applied if greater than 0
    * @param admin The default admin managing the FundsAdmins
-   **/
+   *
+   */
   function initialize(uint256 nextStreamId, address admin) external virtual initializer {
     __AccessControl_init();
     __ReentrancyGuard_init();

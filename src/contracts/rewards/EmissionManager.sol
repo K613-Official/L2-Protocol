@@ -21,7 +21,8 @@ contract EmissionManager is Ownable, IEmissionManager {
 
   /**
    * @dev Only emission admin of the given reward can call functions marked by this modifier.
-   **/
+   *
+   */
   modifier onlyEmissionAdmin(address reward) {
     require(msg.sender == _emissionAdmins[reward], 'ONLY_EMISSION_ADMIN');
     _;

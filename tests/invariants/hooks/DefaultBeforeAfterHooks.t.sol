@@ -104,8 +104,8 @@ abstract contract DefaultBeforeAfterHooks is BaseHooks {
   }
 
   /*/////////////////////////////////////////////////////////////////////////////////////////////
-  //                                       HELPERS                                             //
-  /////////////////////////////////////////////////////////////////////////////////////////////*/
+    //                                       HELPERS                                             //
+    /////////////////////////////////////////////////////////////////////////////////////////////*/
 
   function _setReserveValues(DefaultVars storage _defaultVars) internal {
     // Values across all reserves
@@ -153,8 +153,8 @@ abstract contract DefaultBeforeAfterHooks is BaseHooks {
   }
 
   /*/////////////////////////////////////////////////////////////////////////////////////////////
-  //                                   POST CONDITIONS: BASE                                   //
-  /////////////////////////////////////////////////////////////////////////////////////////////*/
+    //                                   POST CONDITIONS: BASE                                   //
+    /////////////////////////////////////////////////////////////////////////////////////////////*/
 
   function assert_BASE_GPOST_A() internal {
     for (uint256 i; i < baseAssets.length; i++) {
@@ -217,8 +217,8 @@ abstract contract DefaultBeforeAfterHooks is BaseHooks {
   }
 
   /*/////////////////////////////////////////////////////////////////////////////////////////////
-  //                                 POST CONDITIONS: LENDING                                  //
-  /////////////////////////////////////////////////////////////////////////////////////////////*/
+    //                                 POST CONDITIONS: LENDING                                  //
+    /////////////////////////////////////////////////////////////////////////////////////////////*/
 
   function assert_LENDING_GPOST_C() internal {
     if (targetAsset == address(0)) return;
@@ -229,25 +229,27 @@ abstract contract DefaultBeforeAfterHooks is BaseHooks {
     );
 
     if (totalSupplyUpdatedTreasury < defaultVarsAfter.totalSupply) {
-      if (defaultVarsAfter.supplyCap != 0 && msg.sig != IPoolHandler.mintToTreasury.selector)
+      if (defaultVarsAfter.supplyCap != 0 && msg.sig != IPoolHandler.mintToTreasury.selector) {
         assertLe(defaultVarsAfter.totalSupply, defaultVarsAfter.supplyCap, LENDING_GPOST_C);
+      }
     }
   }
 
   /*/////////////////////////////////////////////////////////////////////////////////////////////
-  //                                 POST CONDITIONS: BORROWING                                  //
-  /////////////////////////////////////////////////////////////////////////////////////////////*/
+    //                                 POST CONDITIONS: BORROWING                                  //
+    /////////////////////////////////////////////////////////////////////////////////////////////*/
 
   function assert_BORROWING_GPOST_H() internal {
     if (defaultVarsBefore.totalBorrow < defaultVarsAfter.totalBorrow) {
-      if (defaultVarsAfter.borrowCap != 0)
+      if (defaultVarsAfter.borrowCap != 0) {
         assertLe(defaultVarsAfter.totalBorrow, defaultVarsAfter.borrowCap, BORROWING_GPOST_H);
+      }
     }
   }
 
   /*/////////////////////////////////////////////////////////////////////////////////////////////
-  //                                POST CONDITIONS: HEALTH FACTOR                             //
-  /////////////////////////////////////////////////////////////////////////////////////////////*/
+    //                                POST CONDITIONS: HEALTH FACTOR                             //
+    /////////////////////////////////////////////////////////////////////////////////////////////*/
 
   function assert_HF_GPOST_A(address user) internal {
     if (defaultVarsAfter.users[user].healthFactor < defaultVarsBefore.users[user].healthFactor) {
@@ -291,8 +293,8 @@ abstract contract DefaultBeforeAfterHooks is BaseHooks {
   }
 
   /*/////////////////////////////////////////////////////////////////////////////////////////////
-  //                                   POST CONDITIONS: DEFICIT                                //
-  /////////////////////////////////////////////////////////////////////////////////////////////*/
+    //                                   POST CONDITIONS: DEFICIT                                //
+    /////////////////////////////////////////////////////////////////////////////////////////////*/
 
   function assert_DM_GPOST_A() internal {
     if (defaultVarsBefore.reserveDeficit > defaultVarsAfter.reserveDeficit) {

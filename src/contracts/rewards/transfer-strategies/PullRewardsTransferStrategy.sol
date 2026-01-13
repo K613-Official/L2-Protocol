@@ -12,7 +12,8 @@ import {IERC20} from '../../dependencies/openzeppelin/contracts/IERC20.sol';
  * @notice Transfer strategy that pulls ERC20 rewards from an external account to the user address.
  * The external account could be a smart contract or EOA that must approve to the PullRewardsTransferStrategy contract address.
  * @author Aave
- **/
+ *
+ */
 contract PullRewardsTransferStrategy is TransferStrategyBase, IPullRewardsTransferStrategy {
   using GPv2SafeERC20 for IERC20;
 

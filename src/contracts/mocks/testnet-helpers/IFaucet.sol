@@ -8,7 +8,8 @@ interface IFaucet {
    * @param to The address to send the minted tokens
    * @param amount The amount of tokens to mint
    * @return The amount minted
-   **/
+   *
+   */
   function mint(address token, address to, uint256 amount) external returns (uint256);
 
   /**

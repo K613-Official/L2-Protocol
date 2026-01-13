@@ -65,7 +65,8 @@ interface IEmissionManager {
    * @param asset The asset to incentivize
    * @param reward The reward token that incentives the asset
    * @param newDistributionEnd The end date of the incentivization, in unix time format
-   **/
+   *
+   */
   function setDistributionEnd(address asset, address reward, uint32 newDistributionEnd) external;
 
   /**

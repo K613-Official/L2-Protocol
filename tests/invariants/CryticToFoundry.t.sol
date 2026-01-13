@@ -73,6 +73,7 @@ contract CryticToFoundry is Invariants, Setup {
     _delay(487155);
     this.borrow(1, 0, 2);
   }
+
   function test_v32_2_borrow() public {
     _setUpActorAndDelay(USER1, 453881);
     this.approveDelegation(

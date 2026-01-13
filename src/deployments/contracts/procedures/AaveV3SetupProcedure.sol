@@ -129,8 +129,9 @@ contract AaveV3SetupProcedure {
 
     bytes32 controllerId = keccak256('INCENTIVES_CONTROLLER');
     if (input.rewardsControllerProxy == address(0)) {
-      if (input.rewardsControllerImplementation == address(0))
+      if (input.rewardsControllerImplementation == address(0)) {
         revert RewardsControllerImplementationMustBeSet();
+      }
       provider.setAddressAsProxy(controllerId, input.rewardsControllerImplementation);
       report.rewardsControllerProxy = provider.getAddress(controllerId);
       IEmissionManager emissionManager = IEmissionManager(

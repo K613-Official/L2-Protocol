@@ -6,7 +6,8 @@ import {ITransferStrategyBase} from './ITransferStrategyBase.sol';
 /**
  * @title IPullRewardsTransferStrategy
  * @author Aave
- **/
+ *
+ */
 interface IPullRewardsTransferStrategy is ITransferStrategyBase {
   /**
    * @return Address of the rewards vault

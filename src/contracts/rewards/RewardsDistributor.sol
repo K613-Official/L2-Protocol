@@ -11,7 +11,8 @@ import {RewardsDataTypes} from './libraries/RewardsDataTypes.sol';
  * @title RewardsDistributor
  * @notice Accounting contract to manage multiple staking distributions with multiple rewards
  * @author Aave
- **/
+ *
+ */
 abstract contract RewardsDistributor is IRewardsDistributor {
   using SafeCast for uint256;
 
@@ -218,7 +219,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
   /**
    * @dev Configure the _assets for a specific emission
    * @param rewardsInput The array of each asset configuration
-   **/
+   *
+   */
   function _configureAssets(RewardsDataTypes.RewardsConfigInput[] memory rewardsInput) internal {
     for (uint256 i = 0; i < rewardsInput.length; i++) {
       if (_assets[rewardsInput[i].asset].decimals == 0) {
@@ -280,7 +282,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
    * @param assetUnit One unit of asset (10**decimals)
    * @return The new distribution index
    * @return True if the index was updated, false otherwise
-   **/
+   *
+   */
   function _updateRewardData(
     RewardsDataTypes.RewardData storage rewardData,
     uint256 totalSupply,
@@ -310,7 +313,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
    * @param newAssetIndex The new index of the asset distribution
    * @param assetUnit One unit of asset (10**decimals)
    * @return The rewards accrued since the last update
-   **/
+   *
+   */
   function _updateUserData(
     RewardsDataTypes.RewardData storage rewardData,
     address user,
@@ -339,7 +343,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
    * @param user The user address
    * @param userBalance The current user asset balance
    * @param totalSupply Total supply of the asset
-   **/
+   *
+   */
   function _updateData(
     address asset,
     address user,
@@ -385,7 +390,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
    * @dev Accrues all the rewards of the assets specified in the userAssetBalances list
    * @param user The address of the user
    * @param userAssetBalances List of structs with the user balance and total supply of a set of assets
-   **/
+   *
+   */
   function _updateDataMultiple(
     address user,
     RewardsDataTypes.UserAssetBalance[] memory userAssetBalances
@@ -406,7 +412,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
    * @param reward The address of the reward token
    * @param userAssetBalances List of structs with the user balance and total supply of a set of assets
    * @return unclaimedRewards The accrued rewards for the user until the moment
-   **/
+   *
+   */
   function _getUserReward(
     address user,
     address reward,
@@ -435,7 +442,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
    * @param reward The address of the reward token
    * @param userAssetBalance struct with the user balance and total supply of the incentivized asset
    * @return The pending rewards for the user since the last user action
-   **/
+   *
+   */
   function _getPendingRewards(
     address user,
     address reward,
@@ -463,7 +471,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
    * @param userIndex Index stored for the user, representation his staking moment
    * @param assetUnit One unit of asset (10**decimals)
    * @return The rewards
-   **/
+   *
+   */
   function _getRewards(
     uint256 userBalance,
     uint256 reserveIndex,
@@ -483,7 +492,8 @@ abstract contract RewardsDistributor is IRewardsDistributor {
    * @param totalSupply of the asset being rewarded
    * @param assetUnit One unit of asset (10**decimals)
    * @return The new index.
-   **/
+   *
+   */
   function _getAssetIndex(
     RewardsDataTypes.RewardData storage rewardData,
     uint256 totalSupply,

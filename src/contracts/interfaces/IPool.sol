@@ -741,14 +741,16 @@ interface IPool {
    *      To disable a liquidation grace period, any timestamp in the past works, like 0
    * @param asset The address of the underlying asset to set the liquidationGracePeriod
    * @param until Timestamp when the liquidation grace period will end
-   **/
+   *
+   */
   function setLiquidationGracePeriod(address asset, uint40 until) external;
 
   /**
    * @notice Returns the liquidation grace period of the given asset
    * @param asset The address of the underlying asset
    * @return Timestamp when the liquidation grace period will end
-   **/
+   *
+   */
   function getLiquidationGracePeriod(address asset) external view returns (uint40);
 
   /**

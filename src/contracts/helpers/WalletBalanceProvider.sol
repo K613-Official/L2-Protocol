@@ -16,7 +16,8 @@ import {DataTypes} from '../protocol/libraries/types/DataTypes.sol';
  * @notice Implements a logic of getting multiple tokens balance for one user address
  * @dev NOTE: THIS CONTRACT IS NOT USED WITHIN THE AAVE PROTOCOL. It's an accessory contract used to reduce the number of calls
  * towards the blockchain from the Aave backend.
- **/
+ *
+ */
 contract WalletBalanceProvider {
   using Address for address payable;
   using Address for address;
@@ -26,19 +27,21 @@ contract WalletBalanceProvider {
   address constant MOCK_ETH_ADDRESS = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
 
   /**
-    @dev Fallback function, don't accept any ETH
-    **/
+   *   @dev Fallback function, don't accept any ETH
+   *
+   */
   receive() external payable {
     //only contracts can send ETH to the core
     require(msg.sender.isContract(), '22');
   }
 
   /**
-    @dev Check the token balance of a wallet in a token contract
-
-    Returns the balance of the token for user. Avoids possible errors:
-      - return 0 on non-contract address
-    **/
+   *   @dev Check the token balance of a wallet in a token contract
+   *
+   *   Returns the balance of the token for user. Avoids possible errors:
+   *     - return 0 on non-contract address
+   *
+   */
   function balanceOf(address user, address token) public view returns (uint256) {
     if (token == MOCK_ETH_ADDRESS) {
       return user.balance; // ETH balance
@@ -54,7 +57,8 @@ contract WalletBalanceProvider {
    * @param users The list of users
    * @param tokens The list of tokens
    * @return And array with the concatenation of, for each user, his/her balances
-   **/
+   *
+   */
   function batchBalanceOf(
     address[] calldata users,
     address[] calldata tokens
@@ -71,8 +75,8 @@ contract WalletBalanceProvider {
   }
 
   /**
-    @dev provides balances of user wallet for all reserves available on the pool
-    */
+   *   @dev provides balances of user wallet for all reserves available on the pool
+   */
   function getUserWalletBalances(
     address provider,
     address user

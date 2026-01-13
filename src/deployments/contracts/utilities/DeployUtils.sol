@@ -70,6 +70,6 @@ contract DeployUtils {
       abi.encodePacked(bytes1(0xff), address(this), _salt, keccak256(bytecode))
     );
 
-    return address(uint160(uint(hash)));
+    return address(uint160(uint256(hash)));
   }
 }

@@ -262,6 +262,7 @@ abstract contract BaseTest is BaseStorage, PropertiesConstants, StdAsserts, StdU
     uint128 isBorrowableBitmap = pool.getEModeCategoryBorrowableBitmap(categoryId);
     return EModeConfiguration.isReserveEnabledOnBitmap(isBorrowableBitmap, reserveId);
   }
+
   function _isEModeCollateralAsset(address asset, uint8 categoryId) internal view returns (bool) {
     uint256 reserveId = protocolTokens[asset].id;
     uint128 isCollateralBitmap = pool.getEModeCategoryCollateralBitmap(categoryId);

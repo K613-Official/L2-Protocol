@@ -33,6 +33,7 @@ struct TestVars {
   bytes emptyParams;
   uint256 previousReservesLength;
 }
+
 struct TestReserveConfig {
   uint256 decimals;
   uint256 ltv;
